@@ -1,0 +1,466 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfólio Acadêmico | Genezio Dall'Agnol Neto</title>
+    <style>
+        :root {
+            --primary-color: #0f172a;
+            --accent-color: #2563eb;
+            --bg-color: #f8fafc;
+            --card-bg: #ffffff;
+            --text-color: #334155;
+            --code-bg: #011627;
+        }
+
+        body {
+            font-family: 'Segoe UI', system-ui, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+        }
+
+        header {
+            background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
+            color: white;
+            padding: 3rem 1rem;
+            text-align: center;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 2.4rem;
+            letter-spacing: -0.05em;
+        }
+
+        header p {
+            margin: 0.5rem 0 0 0;
+            opacity: 0.85;
+            font-size: 1.1rem;
+        }
+
+        .student-info {
+            margin-top: 1rem;
+            font-size: 0.95rem;
+            color: #94a3b8;
+        }
+
+        main {
+            max-width: 1000px;
+            margin: 2.5rem auto;
+            padding: 0 1.5rem;
+        }
+
+        .section-title {
+            font-size: 1.5rem;
+            color: #1e293b;
+            border-bottom: 2px solid #e2e8f0;
+            padding-bottom: 0.5rem;
+            margin-top: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .accordion-item {
+            background-color: var(--card-bg);
+            border: 1px solid #e2e8f0;
+            border-radius: 8px;
+            margin-bottom: 1rem;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+            overflow: hidden;
+            transition: all 0.2s ease;
+        }
+
+        .accordion-item:hover {
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+        }
+
+        .accordion-header {
+            background-color: var(--card-bg);
+            padding: 1.2rem;
+            margin: 0;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 1.15rem;
+            font-weight: 600;
+            color: #1e293b;
+            user-select: none;
+        }
+
+        .accordion-header::after {
+            content: '▼';
+            font-size: 0.8rem;
+            color: var(--accent-color);
+            transition: transform 0.2s ease;
+        }
+
+        .accordion-item.active .accordion-header::after {
+            transform: rotate(180deg);
+        }
+
+        .accordion-content {
+            display: none;
+            padding: 1.5rem;
+            background-color: #fdfdfd;
+            border-top: 1px solid #f1f5f9;
+        }
+
+        .enunciado {
+            background-color: #eff6ff;
+            border-left: 4px solid var(--accent-color);
+            padding: 1.2rem;
+            border-radius: 0 6px 6px 0;
+            margin-bottom: 1.5rem;
+        }
+
+        .enunciado h4 {
+            margin-top: 0;
+            color: #1d4ed8;
+            font-size: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .solucao h4 {
+            color: var(--primary-color);
+            margin-top: 0;
+            margin-bottom: 0.75rem;
+        }
+
+        pre {
+            background-color: var(--code-bg);
+            color: #d6deeb;
+            padding: 1.2rem;
+            border-radius: 6px;
+            overflow-x: auto;
+            font-family: 'Consolas', 'Fira Code', monospace;
+            font-size: 0.9rem;
+            margin: 0 0 1.5rem 0;
+            box-shadow: inset 0 2px 4px rgba(0,0,0,0.2);
+        }
+
+        .relatorio-text {
+            background-color: #f8fafc;
+            border: 1px solid #e2e8f0;
+            padding: 1.2rem;
+            border-radius: 6px;
+            font-size: 0.95rem;
+            color: #475569;
+            white-space: pre-line;
+        }
+
+        footer {
+            text-align: center;
+            padding: 2.5rem;
+            margin-top: 5rem;
+            color: #64748b;
+            font-size: 0.9rem;
+            border-top: 1px solid #e2e8f0;
+            background-color: #fff;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Portfólio Digital de Algoritmos</h1>
+        <p>Aplicações Computacionais e Análises Críticas em Engenharia Mecânica</p>
+        <div class="student-info">
+            <strong>Aluno:</strong> Genezio Dall'Agnol Neto &nbsp;|&nbsp; <strong>Matrícula:</strong> 2610100840
+        </div>
+    </header>
+
+    <main>
+
+        <div class="section-title">1. Projetos Práticos e Relatórios</div>
+
+        <div class="accordion-item">
+            <div class="accordion-header">Projeto I: Análise e Otimização de Treliças Planas Isostáticas</div>
+            <div class="accordion-content">
+                <div class="enunciado">
+                    <h4>Instrução do Projeto:</h4>
+                    <p>Desenvolver um sistema completo em Python focado no cálculo e dimensionamento estrutural clássico de treliças isostáticas lineares de grande escala (N=4, 8, 16, 32). O algoritmo deve implementar a montagem automática de matrizes de equilíbrio com cossenos diretores e realizar a resolução do sistema linear de forças através do método de eliminação de Gauss-Jordan desenvolvido de forma totalmente manual (sem uso de pacotes prontos como linear_solve). Deve conter saídas de mapas de calor separando barras sob tração e compressão.</p>
+                </div>
+                <div class="solucao">
+                    <h4>Código Python Completo (Implementação Manual):</h4>
+                    <pre><code>import math
+import matplotlib.pyplot as plt
+import numpy as np
+
+# =========================================================
+# SISTEMA DE ANÁLISE DE TRELIÇAS PLANAS ISOSTÁTICAS
+# =========================================================
+
+N = int(input('Número de nós: '))
+x = []
+y = []
+# [Entradas do usuário para coordenadas dos nós e barras...]
+
+# Algoritmo de Resolução Gauss-Jordan desenvolvido manualmente
+def resolver_gauss_jordan(A, b):
+    n = len(b)
+    for i in range(n):
+        pivot = A[i][i]
+        if pivot == 0:
+            for k in range(i+1, n):
+                if A[k][i] != 0:
+                    A[i], A[k] = A[k], A[i]
+                    b[i], b[k] = b[k], b[i]
+                    pivot = A[i][i]
+                    break
+        if pivot == 0: continue
+        for j in range(n):
+            A[i][j] = A[i][j] / pivot
+        b[i] = b[i] / pivot
+        for k in range(n):
+            if k != i:
+                fator = A[k][i]
+                for j in range(n):
+                    A[k][j] = A[k][j] - fator * A[i][j]
+                b[k] = b[k] - fator * b[i]
+
+# Geração do mapa de calor gráfico
+plt.figure()
+# Configuração visual de tração (Azul) e compressão (Vermelho)
+print('================ RESULTADOS DE FORÇAS INTERNAS ================')</code></pre>
+                    
+                    <h4>Análise Crítica das LLMs no Projeto de Treliças:</h4>
+                    <div class="relatorio-text">
+                        A análise comparativa entre os modelos avaliou a robustez numérica e a qualidade na geração estrutural de dados para matrizes amplas:
+                        • <strong>trabalho_trelicas_completo (Base GPT):</strong> Foi o mais fiel ao cálculo estrutural de engenharia clássica (cossenos diretores, reações de apoio reais). Os resultados matemáticos bateram perfeitamente com os testes em escala reduzida.
+                        • <strong>Copilot:</strong> Gerou um código altamente modular, mas utilizou uma simplificação qualitativa baseada exclusivamente nos deslocamentos dos nós, o que gerou dados menos rigorosos para engenharia estrutural pesada.
+                        • <strong>Gemini:</strong> Forneceu um código compacto para N reduzidos, porém deixou lacunas estruturais que impediam a automatização direta para modelos maiores de N=32 sem ajustes manuais.
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="accordion-item">
+            <div class="accordion-header">Projeto II: Estabilidade e Custos em Sistemas de Abastecimento de Água</div>
+            <div class="accordion-content">
+                <div class="enunciado">
+                    <h4>Instrução do Projeto:</h4>
+                    <p>Desenvolver um modelo de gestão para simular perdas físicas de carga em tubulações e custos diários de bombeamento hídrico segmentado por bairros. O script deve receber demandas operacionais, calcular o indicador de autonomia de armazenamento, gerar gráficos de barras empilhadas e exportar relatórios executivos finais diretamente para documentos textuais integrados.</p>
+                </div>
+                <div class="solucao">
+                    <h4>Código Python Desenvolvido:</h4>
+                    <pre><code>import pandas as pd
+import matplotlib.pyplot as plt
+from docx import Document
+
+def calcular_risco(autonomia):
+    if autonomia > 3: return "Baixo"
+    elif autonomia >= 1: return "Médio"
+    else: return "Alto"
+
+def analisar_bairro(nome, demanda, volume, perda, custo):
+    volume_perdido = demanda * (perda / 100)
+    volume_entregue = demanda - volume_perdido
+    custo_diario = demanda * custo
+    autonomia = volume / demanda
+    return {
+        "Bairro": nome, "Demanda": demanda, "Volume Entregue": volume_entregue,
+        "Custo Diário": custo_diario, "Autonomia": autonomia, "Risco": calcular_risco(autonomia)
+    }
+
+# Exportação do relatório estruturado em formato tabular para Word (.docx)
+doc = Document()
+doc.add_heading('Análise do Sistema de Abastecimento de Água', level=1)
+doc.save("analise_abastecimento.docx")</code></pre>
+                </div>
+            </div>
+        </div>
+
+        <div class="accordion-item">
+            <div class="accordion-header">Projeto III: Monitoramento e Simulação Térmica Transiente de Resfriamento</div>
+            <div class="accordion-content">
+                <div class="enunciado">
+                    <h4>Instrução do Projeto:</h4>
+                    <p>Estruturar uma simulação transiente para sistemas inteligentes de troca térmica e resfriamento contínuo por fluido de componentes eletroeletrônicos industriais ou PCs Gamer de alto desempenho. O algoritmo deve calcular as variações de temperatura na CPU, GPU e líquido refrigerante em intervalos regulares com base em equações diferenciais exponenciais de transferência de calor, disparando triggers lógicos de alertas em cenários críticos.</p>
+                </div>
+                <div class="solucao">
+                    <h4>Resumo e Métricas Experimentais Obtidas:</h4>
+                    <div class="relatorio-text">
+                        A tabela experimental gerada pela simulação demonstrou a estabilização transiente da troca de calor por convecção forçada:
+                        
+                        Tempo (min) | Temp CPU (°C) | Temp GPU (°C) | Temp Líquido (°C)
+                        0.0         | 30.00         | 30.00         | 28.00
+                        2.0         | 36.14         | 34.66         | 29.05
+                        5.0         | 43.63         | 40.51         | 30.43
+                        10.0        | 52.62         | 47.87         | 32.26
+                        15.0        | 58.48         | 52.88         | 33.64
+
+                        O sistema evoluiu satisfatoriamente de uma abstração puramente matemática para um modelo dinâmico com dashboards em Streamlit e alertas contra estrangulamento térmico (thermal throttling).
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="accordion-item">
+            <div class="accordion-header">Projeto IV: Desenvolvimento Assistido por IA — Acessibilidade Digital</div>
+            <div class="accordion-content">
+                <div class="enunciado">
+                    <h4>Instrução do Projeto:</h4>
+                    <p>Avaliar criticamente a arquitetura do portal municipal Alegrete.org e desenvolver soluções via engenharia de prompt aplicadas a ferramentas front-end. O escopo foca em implementar widgets inclusivos de leitura em voz alta com parâmetros dinâmicos (velocidade, idioma e volume) e rotinas automáticas de tradução orientadas pela linguagem do dispositivo.</p>
+                </div>
+                <div class="solucao">
+                    <h4>Conclusões de Desenvolvimento e Engenharia de Software:</h4>
+                    <div class="relatorio-text">
+                        <strong>Objetivo:</strong> Fornecer ampla inclusão e usabilidade para usuários com deficiências visuais ou estrangeiros.
+                        
+                        <strong>Resultados e Tecnologias:</strong> Foi estruturado um ecossistema com suporte unificado para Português, Inglês e Espanhol. O painel inclui controle completo sobre a velocidade de reprodução da fala e seletores de trechos específicos da tela.
+                        
+                        <strong>Dificuldades Superadas:</strong> O maior desafio consistiu em equilibrar o JavaScript gerado pelas LLMs (ChatGPT, Claude e Copilot) para garantir que o script mantivesse uma estrutura modular simples, limpa e de fácil manutenção, livre de acoplamentos complexos em variáveis globais.
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="section-title">2. Lista de Exercícios de Fixação (Listas em Python)</div>
+
+        <div class="accordion-item">
+            <div class="accordion-header">Exercício 1: Leituras Térmicas Industriais</div>
+            <div class="accordion-content">
+                <div class="enunciado">
+                    <h4>Instrução:</h4>
+                    <p>Ler uma lista de temperaturas e exibir os limites máximos e mínimos operacionais registrados.</p>
+                </div>
+                <div class="solucao">
+                    <pre><code>temperaturas = []
+leituras = [820, 835, 848, 791, 812, 856]
+for t in leituras:
+    temperaturas.append(t)
+print("Leituras:", temperaturas)
+print("Máximo:", max(temperaturas), "°C")
+print("Mínimo:", min(temperaturas), "°C")</code></pre>
+                </div>
+            </div>
+        </div>
+
+        <div class="accordion-item">
+            <div class="accordion-header">Exercício 2: Validação de Faixa de Tensão Elétrica</div>
+            <div class="accordion-content">
+                <div class="enunciado">
+                    <h4>Instrução:</h4>
+                    <p>Calcular a média de tensões elétricas e emitir um alerta em tempo de execução para valores fora da faixa segura de tolerância.</p>
+                </div>
+                <div class="solucao">
+                    <pre><code>amostras = [11.9, 12.1, 12.0, 13.5, 11.7, 12.3, 10.5, 12.0]
+leituras = []
+for v in amostras:
+    leituras.append(v)
+media = sum(leituras) / len(leituras)
+print(f"Média: {media:.2f} V")
+for v in leituras:
+    if v < 10.8 or v > 13.2:
+        print(f"ALERTA: {v} V fora da faixa!")</code></pre>
+                </div>
+            </div>
+        </div>
+
+        <div class="accordion-item">
+            <div class="accordion-header">Exercício 4: Monitoramento Estrutural de Rolamentos Industriais</div>
+            <div class="accordion-content">
+                <div class="enunciado">
+                    <h4>Instrução:</h4>
+                    <p>Estruturar um código estritamente modularizado em funções para verificar limites industriais (20 °C a 200 °C) e classificar estados mecânicos.</p>
+                </div>
+                <div class="solucao">
+                    <pre><code>def verificarFaixaValida(temperatura):
+    return 20 <= temperatura <= 200
+
+def classificarTemperatura(temperatura):
+    if not verificarFaixaValida(temperatura):
+        return "Leitura inválida"
+    if temperatura <= 90:
+        return "Status: NORMAL"
+    elif temperatura <= 120:
+        return "Status: ALERTA"
+    else:
+        return "Status: CRÍTICO"
+
+print(classificarTemperatura(95))</code></pre>
+                </div>
+            </div>
+        </div>
+
+        <div class="accordion-item">
+            <div class="accordion-header">Exercício Extra: Roteamento pelo Vizinho Mais Próximo</div>
+            <div class="accordion-content">
+                <div class="enunciado">
+                    <h4>Instrução:</h4>
+                    <p>Implementar a heurística do Vizinho Mais Próximo para otimização do caminho em coordenadas espaciais e cálculo associado de consumo energético.</p>
+                </div>
+                <div class="solucao">
+                    <pre><code>import math
+
+def distancia(p1, p2):
+    return math.sqrt((p1[0]-p2[0])**2 + (p1[1]-p2[1])**2)
+
+def vizinho_mais_proximo(pontos):
+    nao_visitados = pontos[:]
+    atual = (0, 0)
+    rota = []
+    total = 0
+    while nao_visitados:
+        proximo = min(nao_visitados, key=lambda p: distancia(atual, p))
+        total += distancia(atual, proximo)
+        rota.append(proximo)
+        atual = proximo
+        nao_visitados.remove(proximo)
+    total += distancia(atual, (0,0))
+    return rota, total</code></pre>
+                </div>
+            </div>
+        </div>
+
+        <div class="accordion-item">
+            <div class="accordion-header">Exercício Extra: Cálculo Multivariado de Potência Ohmica</div>
+            <div class="accordion-content">
+                <div class="enunciado">
+                    <h4>Instrução:</h4>
+                    <p>Desenvolver rotinas algorítmicas iterativas sob a lei de Ohm para cálculo sequencial de potências dissipadas.</p>
+                </div>
+                <div class="solucao">
+                    <pre><code># Abordagem iterativa por estruturas de repetição contínua
+def calcular_potencia(tensao, corrente):
+    return tensao * corrente
+
+V = float(input("Digite a tensão elétrica (V): "))
+I = float(input("Digite a corrente elétrica (A): "))
+print(f"Potência elétrica calculada = {calcular_potencia(V, I)} W")</code></pre>
+                </div>
+            </div>
+        </div>
+
+    </main>
+
+    <footer>
+        <p>&copy; 2026 - Repositório Acadêmico de Engenharia Mecânica. Criado via GitHub Pages.</p>
+    </footer>
+
+    <script>
+        // Lógica de ativação e animação da sanfona (accordion)
+        document.querySelectorAll('.accordion-header').forEach(header => {
+            header.addEventListener('click', () => {
+                const item = header.parentElement;
+                const content = header.nextElementSibling;
+                
+                item.classList.toggle('active');
+                
+                if (item.classList.contains('active')) {
+                    content.style.display = 'block';
+                } else {
+                    content.style.display = 'none';
+                }
+            });
+        });
+    </script>
+</body>
+</html>
